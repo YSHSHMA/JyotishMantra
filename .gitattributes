@@ -20,8 +20,7 @@ CHANGELOG.md export-ignore
 #   binary  These files are binary and should be left untouched.
 #
 # Note that binary is a macro for -text -diff.
-######################################################################
-
+##########################################################################
 # Auto detect
 ##   Handle line endings automatically for files detected as
 ##   text and leave all files detected as binary untouched.
