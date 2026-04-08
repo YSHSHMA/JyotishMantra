@@ -6,7 +6,8 @@
   ],
   "plugins": [
     "stylelint-use-logical-spec",
-    "@stylistic/stylelint-plugin"
+    "@stylistic/stylelint-plugin",
+    ""
   ],
   "rules": {
     "alpha-value-notation": null,
