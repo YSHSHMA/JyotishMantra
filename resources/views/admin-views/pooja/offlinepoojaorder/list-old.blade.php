@@ -1,0 +1,357 @@
+@php use App\Utils\Helpers; @endphp
+@extends('layouts.back-end.app')
+
+@section('title', translate('offline_Pooja_Order_List'))
+@push('css_or_js')
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .gj-datepicker-bootstrap [role=right-icon] button .gj-icon {
+            top: 14px;
+            right: 5px;
+        }
+    </style>
+@endpush
+@section('content')
+    <div class="content container-fluid">
+        <div class="mb-3">
+            <h2 class="h1 mb-0 d-flex gap-2">
+                <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/vip.png') }}" alt="">
+                {{ translate('offline_Pooja_Order_List') }}
+                <span class="badge badge-soft-dark radius-50 fz-14">{{ count($orders) }}</span>
+            </h2>
+        </div>
+        <div class="card mb-3 remove-card-shadow">
+            <div class="card-body">
+                <div class="row g-2" id="order_stats">
+                    <div class="col-lg-4">
+                        <div class="card h-100 d-flex justify-content-center align-items-center">
+                            @php
+                                $totalPaymentAmount = \App\Models\OfflinePoojaOrder::sum('pay_amount');
+                            @endphp
+                            <div class="card-body d-flex flex-column gap-10 align-items-center justify-content-center">
+                                <img width="48" class="mb-2"
+                                    src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/rupay.png') }}"
+                                    alt="">
+                                <h3 class="for-card-count mb-0 fz-24 text-success">
+                                    {{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $totalPaymentAmount), currencyCode: getCurrencyCode()) }}
+                                </h3>
+                                <div class="text-capitalize mb-30">
+                                    Pooja earning
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="card card-body h-100 justify-content-center">
+                                    <div class="d-flex gap-2 justify-content-between align-items-center">
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h3 class="mb-1 fz-24 text-info">{{ \App\Models\OfflinePoojaOrder::count() }}
+                                            </h3>
+                                            <div class="text-capitalize mb-0">TOTAL ORDER</div>
+                                        </div>
+                                        <div>
+                                            <img width="40" class="mb-2"
+                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/order.png') }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-body h-100 justify-content-center">
+                                    <div class="d-flex gap-2 justify-content-between align-items-center">
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h3 class="mb-1 fz-24 text-primary">
+                                                {{ \App\Models\OfflinePoojaOrder::where('status', 0)->count() }}
+                                            </h3>
+                                            <div class="text-capitalize mb-0">PENDING ORDER</div>
+                                        </div>
+                                        <div>
+                                            <img width="40"
+                                                class="mb-2"src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/panding.png') }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-body h-100 justify-content-center">
+                                    <div class="d-flex gap-2 justify-content-between align-items-center">
+                                        <div class="d-flex flex-column align-items-start">
+                                            <h3 class="mb-1 fz-24 text-success">
+                                                {{ \App\Models\OfflinePoojaOrder::where('status', 1)->count() }}
+                                            </h3>
+                                            <div class="text-capitalize mb-0">COMPLETED ORDER</div>
+                                        </div>
+                                        <div>
+                                            <img width="40"
+                                                class="mb-2"src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/ordercom.png') }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-body h-100 justify-content-center">
+                                    <div class="d-flex gap-2 justify-content-between align-items-center">
+                                        <div class="d-flex flex-column align-items-start">
+
+                                            <h3 class="mb-1 fz-24 text-info">
+                                                {{ \App\Models\OfflinePoojaOrder::where('status', 2)->count() }}
+                                            </h3>
+                                            <div class="text-capitalize mb-0">CANCEL ORDER</div>
+                                        </div>
+                                        <div>
+                                            <img width="70"
+                                                class="mb-2"src="{{ dynamicAsset(path: 'public/assets/back-end/img/pooja/reject.png') }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-20">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="px-3 py-4">
+                        <div class="row g-2 flex-grow-1">
+                            {{-- <div class="col-sm-8 col-md-6 col-lg-4">
+                                <form action="{{ url()->current() }}" method="GET">
+                                    <div class="input-group input-group-custom input-group-merge">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="tio-search"></i>
+                                            </div>
+                                        </div>
+                                        <input id="datatableSearch_" type="search" name="searchValue" class="form-control"
+                                            placeholder="{{ translate('search_by_name') }}"
+                                            aria-label="{{ translate('search_by_name') }}"
+                                            value="{{ request('searchValue') }}" required>
+                                        <button type="submit"
+                                            class="btn btn--primary input-group-text">{{ translate('search') }}</button>
+                                    </div>
+                                </form>
+                            </div> --}}
+                            <div class="col-sm-4 col-md-6 col-lg-8 d-flex justify-content-end">
+                                <!-- <button type="button" class="btn btn-outline--primary" data-toggle="dropdown">
+                                                <i class="tio-download-to"></i>
+                                                {{ translate('export') }}
+                                                <i class="tio-chevron-down"></i>
+                                            </button> -->
+                                {{-- <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.calculator.export', ['searchValue' => request('searchValue')]) }}">
+                                            <img width="14"
+                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/excel.png') }}"
+                                                alt="">
+                                            {{ translate('excel') }}
+                                        </a>
+                                    </li>
+                                </ul> --}}
+                            </div>
+                        </div>
+                    </div>
+                    @include('admin-views.pooja.offlinepoojaorder.partial.payment')
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table id="myTable"
+                                class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table w-100 text-start">
+                                <thead class="thead-light thead-50 text-capitalize">
+                                    <tr>
+                                        <th>{{ translate('SL') }}</th>
+                                        <th>{{ translate('order_Id') }}</th>
+                                        <th>{{ translate('order_Date') }}</th>
+                                        <th>{{ translate('Customer') }}</th>
+                                        <th>{{ translate('Pooja Name') }}</th>
+                                        <th>{{ translate('Pandit') }}</th>
+                                        <th>{{ translate('Amount') }}</th>
+                                        <th>{{ translate('paid_Amount') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        {{-- @if (Helpers::modules_permission_check('Vip Order', 'All', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'All', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'All', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'schedule')) --}}
+                                        <th class="text-center"> {{ translate('action') }}</th>
+                                        {{-- @endif --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($orders as $key => $order)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td><a href="#" data-id="{{ $order['id'] }}"
+                                                    class="order-link">{{ $order->order_id }}</a></td>
+                                            <td>{{ date('d M, Y h:i A', strtotime($order->created_at)) }}</td>
+                                            <td>
+                                                @if (!empty($order['customers']))
+                                                    <b><a href="{{ route('admin.customer.view', [$order['customers']['id']]) }}"
+                                                            class="title-color hover-c1 d-flex align-items-center gap-10">{{ @ucwords($order['customers']['f_name']) }}
+                                                            {{ $order['customers']['l_name'] }}</b>
+                                                    <p>{{ $order['customers']['phone'] }}</p>
+                                                    @else
+                                                    <p><strong>{{translate('NA')}}</strong></p>
+                                                @endif
+                                                </a>
+                                                </b>
+                                            </td>
+                                            <td><b>
+                                                    <a href="javascript:0"
+                                                        class="title-color hover-c1 d-flex align-items-center gap-10"
+                                                        target="_blank">
+                                                        {{ Str::limit($order['offlinePooja']['name'], 30) }}</a>
+                                                </b>
+                                            </td>
+
+                                            <td>
+                                                @if ($order['pandit'] != null)
+                                                    <b>{{ @ucwords($order['pandit']['name']) }}</b>
+                                                @else
+                                                    <span class="badge badge-soft-danger">Not Assigned</span>
+                                                @endif
+                                            </td>
+                                            <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->package_main_price), currencyCode: getCurrencyCode()) }}
+                                            </td>
+                                            <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->pay_amount), currencyCode: getCurrencyCode()) }}
+                                            </td>
+                                            <td class="text-center">
+                                                <span
+                                                    class="mb-1 badge badge-soft-{{ $order->status === 0
+                                                        ? 'primary'
+                                                        : ($order->status === 1
+                                                            ? 'success'
+                                                            : ($order->status === 2
+                                                                ? 'danger'
+                                                                : 'secondary')) }}">
+                                                    {{ $order->status === 0
+                                                        ? 'Pending'
+                                                        : ($order->status === 1
+                                                            ? 'Completed'
+                                                            : ($order->status === 2
+                                                                ? 'Cancel'
+                                                                : 'Unknown Status')) }}
+                                                </span>
+                                                <br>
+                                                <span>{{ $order->status === 2 ? ($order->refund_status == 0 ? 'Refund Pending' : 'Refund Successfull') : '' }}</span>
+                                            </td>
+
+                                            {{-- @if (Helpers::modules_permission_check('Vip Order', 'All', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'detail') ||
+    Helpers::modules_permission_check('Vip Order', 'All', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'download') ||
+    Helpers::modules_permission_check('Vip Order', 'All', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Pending', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Completed', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Canceled', 'schedule') ||
+    Helpers::modules_permission_check('Vip Order', 'Rejected', 'schedule')) --}}
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-2">
+                                                    {{-- @if ($order['payment_status']==1) --}}
+                                                    {{-- @if (Helpers::modules_permission_check('Vip Order', 'All', 'detail') || Helpers::modules_permission_check('Vip Order', 'Pending', 'detail') || Helpers::modules_permission_check('Vip Order', 'Completed', 'detail') || Helpers::modules_permission_check('Vip Order', 'Canceled', 'detail') || Helpers::modules_permission_check('Vip Order', 'Rejected', 'detail')) --}}
+                                                    <a class="btn btn-outline-primary btn-sm square-btn"
+                                                        title="{{ translate('view') }}"
+                                                        href="{{ route('admin.offlinepooja.order.details', [$order['order_id']]) }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                            height="12" viewBox="0 0 14 12" fill="none"
+                                                            class="svg replaceds-svg">
+                                                            <path
+                                                                d="M6.79584 3.75937C6.86389 3.75234 6.93195 3.75 7 3.75C8.2882 3.75 9.33333 4.73672 9.33333 6C9.33333 7.24219 8.2882 8.25 7 8.25C5.68993 8.25 4.66667 7.24219 4.66667 6C4.66667 5.93437 4.6691 5.86875 4.67639 5.80313C4.90243 5.90859 5.16493 6 5.44445 6C6.30243 6 7 5.32734 7 4.5C7 4.23047 6.90521 3.97734 6.79584 3.75937ZM11.6813 2.63906C12.8188 3.65625 13.5795 4.85391 13.9392 5.71172C14.0194 5.89687 14.0194 6.10312 13.9392 6.28828C13.5795 7.125 12.8188 8.32266 11.6813 9.36094C10.5365 10.3875 8.96389 11.25 7 11.25C5.03611 11.25 3.46354 10.3875 2.31924 9.36094C1.18174 8.32266 0.42146 7.125 0.059818 6.28828C0.0203307 6.19694 0 6.09896 0 6C0 5.90104 0.0203307 5.80306 0.059818 5.71172C0.42146 4.85391 1.18174 3.65625 2.31924 2.63906C3.46354 1.61344 5.03611 0.75 7 0.75C8.96389 0.75 10.5365 1.61344 11.6813 2.63906ZM7 2.625C5.06771 2.625 3.5 4.13672 3.5 6C3.5 7.86328 5.06771 9.375 7 9.375C8.93229 9.375 10.5 7.86328 10.5 6C10.5 4.13672 8.93229 2.625 7 2.625Z"
+                                                                fill="#0177CD"></path>
+                                                        </svg>
+                                                    </a>
+                                                    {{-- @endif --}}
+
+                                                    {{-- @if (Helpers::modules_permission_check('Vip Order', 'All', 'download') || Helpers::modules_permission_check('Vip Order', 'Pending', 'download') || Helpers::modules_permission_check('Vip Order', 'Completed', 'download') || Helpers::modules_permission_check('Vip Order', 'Canceled', 'download') || Helpers::modules_permission_check('Vip Order', 'Rejected', 'download')) --}}
+                                                    <a class="btn btn-outline-info btn-sm square-btn" target="_blank"
+                                                        href="{{ route('admin.offlinepooja.order.generate.invoice', $order['order_id']) }}">
+                                                        <i class="tio-download-to"></i>
+                                                    </a>
+                                                    {{-- @endif --}}
+                                                    {{-- @else --}}
+                                                    @if ($order['payment_status']==0)
+                                                    <button class="btn btn-sm btn-primary" onclick="pendingOrder('{{$order['order_id']}}')">Pay</button>
+                                                    @endif
+                                                    {{-- <form action="{{route('admin.offlinepooja.order.pending.payment.request')}}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="order_id" value="{{$order['order_id']}}">
+                                                        <button type="submit" class="btn btn-primary">Pay Request</button>
+                                                    </form> --}}
+                                                    {{-- <a class="btn btn-outline-info btn-sm square-btn" target="_blank"
+                                                        href="{{ route('admin.offlinepooja.order.pending.payment', $order['order_id']) }}">
+                                                        <i class="tio-download-to"></i>
+                                                    </a> --}}
+                                                    {{-- @endif --}}
+
+
+                                                </div>
+
+                                            </td>
+                                            {{-- @endif --}}
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-4">
+                        <div class="d-flex justify-content-lg-end">
+                            {{ $orders->links() }}
+                        </div>
+                    </div>
+                    @if (count($orders) == 0)
+                        <div class="text-center p-4">
+                            <img class="mb-3 w-160"
+                                src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+                                alt="">
+                            <p class="mb-0">{{ translate('no_data_to_show') }}</p>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('script')
+    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="{{ dynamicAsset(path: 'public/js/ckeditor.js') }}"></script>
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+
+    <script>
+        function pendingOrder(orderId) {
+            if (!orderId) {
+                alert('Order ID not found');
+            } else {
+                $('#pending-order-id').val(orderId);
+                $('.offlinepooj-pending-form').submit();
+            }
+        }
+      </script>
+@endpush

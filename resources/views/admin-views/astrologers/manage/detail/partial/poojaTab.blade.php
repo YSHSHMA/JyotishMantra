@@ -1,0 +1,57 @@
+<div class="table-responsive datatable-custom">
+    <table id="datatable" style="text-align: left;"
+        class="table table-hover table-borderless table-thead-bordered table-align-middle card-table w-100">
+        <thead class="thead-light thead-50 text-capitalize">
+            <tr>
+                <th>{{ translate('#') }}</th>
+                <th style="width: 25%">{{ translate('name') }} </th>
+                <th>{{ translate('category') }}</th>
+                <th>{{ translate('date_&_time') }}</th>
+                <th>{{ translate('no_of_order') }}</th>
+                <th style="width: 15%">{{ translate('venue') }}</th>
+                <th>{{ translate('status') }}</th>
+                <th>{{ translate('action') }}</th>
+            </tr>
+        </thead>
+        <tbody id="set-rows">
+            @foreach ($poojaOrders as $poojaKey => $poojaOrder)
+                <tr>
+                    <td>{{ $poojaKey + 1 }}</td>
+                    <td>{{ Str::limit($poojaOrder['services']['name'], 70) }}</td>
+                    <td>{{ $poojaOrder['services']['category']['name'] }} </td>
+                    <td>{{ !empty($poojaOrder['booking_date']) ? date('d/m/Y', strtotime($poojaOrder['booking_date'])) : '' }} </td>
+                    <td> {{ !empty($poojaOrder['booking_count']) ? $poojaOrder['booking_count'] : '' }} </td>
+                    <td>{{ $poojaOrder['services']['pooja_venue'] }} </td>
+                    <td>{{ empty($poojaOrder['pooja_video']) ? 'In progress' : 'Sent' }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="javascript:0"
+                                class="btn btn-outline-primary btn-sm square-btn
+                                "title="{{ translate('view') }}"
+                                data-members="{{ $poojaOrder['members'] }}" data-gotra="{{ $poojaOrder['gotra'] }}"
+                                onclick="poojaMemberModal(this)"><i class="tio-user"></i></a>
+
+                            <a href="javascript:0" class="btn btn-outline-info btn-sm square-btn"
+                                title="{{ translate('view') }}" data-serviceid="{{ $poojaOrder['services']['id'] }}"
+                                data-bookingdate="{{ $poojaOrder['booking_date'] }}" onclick="poojaOrderModal(this)"><i
+                                    class="tio-truck"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="table-responsive mt-4">
+    <div class="d-flex justify-content-lg-end">
+        {{ $poojaOrders->links() }}
+    </div>
+</div>
+@if (count($poojaOrders) == 0)
+    <div class="text-center p-4">
+        <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+            alt="">
+        <p class="mb-0">{{ translate('no_data_to_show') }}</p>
+    </div>
+@endif
