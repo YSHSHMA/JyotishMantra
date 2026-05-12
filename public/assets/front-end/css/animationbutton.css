@@ -1,0 +1,131 @@
+ /* Button animation */
+ .animated-button {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 1rem;
+     padding: 0.5rem 1.25rem;
+     border-radius: 5px;
+     background: linear-gradient(-45deg, rgb(254, 152, 2) 0%, #FFC107 30%, #FF9800 50%, #FF9800 70%, rgb(252, 152, 0) 100%) 0% 0% / 200% 100%;
+     background-size: 200% 100%;
+     animation: slideBackground 5s linear infinite;
+     color: white;
+     font-size: 16px;
+     font-weight: bold;
+     text-decoration: none;
+     transition: transform 0.2s ease;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+     overflow: hidden;
+     position: relative;
+ }
+
+ .text-wrapper {
+     position: relative;
+     height: 100%;
+     /* overflow: hidden; */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 120px;
+ }
+
+ @keyframes slideBackground {
+     0% {
+         background-position: 0% 0%;
+     }
+
+     100% {
+         background-position: -200% 0%;
+     }
+ }
+
+ .text-slide {
+     position: absolute;
+     white-space: nowrap;
+     animation: slideText 6s linear infinite;
+     opacity: 0;
+ }
+
+ .text-slide:nth-child(1) {
+     animation-delay: 0s;
+ }
+
+ .text-slide:nth-child(2) {
+     animation-delay: 3s;
+ }
+
+ @keyframes slideText {
+     0% {
+         transform: translateY(-100%);
+         opacity: 0;
+     }
+
+     10% {
+         transform: translateY(0%);
+         opacity: 1;
+     }
+
+     40% {
+         transform: translateY(0%);
+         opacity: 1;
+     }
+
+     50% {
+         transform: translateY(100%);
+         opacity: 0;
+     }
+
+     100% {
+         transform: translateY(100%);
+         opacity: 0;
+     }
+ }
+
+ .icon img {
+     width: 24px;
+     height: 24px;
+     animation: iconSwipe 3s linear infinite;
+     /* Match duration with text (5s) */
+ }
+
+ .icon img:nth-child(1) {
+     animation-delay: 3s;
+     /* Sync with first text */
+ }
+
+ .icon img:nth-child(2) {
+     animation-delay: 3s;
+     /* Sync with second text */
+ }
+
+ @keyframes iconSwipe {
+     0% {
+         transform: translateX(-100%);
+         opacity: 0;
+     }
+
+     10% {
+         transform: translateX(0%);
+         /* Fast entry */
+         opacity: 1;
+     }
+
+     80% {
+         transform: translateX(0%);
+         /* Stay visible with text */
+         opacity: 1;
+     }
+
+     90% {
+         transform: translateX(100%);
+         /* Jump to 80% immediately (fast start) */
+         opacity: 1;
+     }
+
+     100% {
+         transform: translateX(100%);
+         /* Quickly finish sliding out */
+         opacity: 0;
+     }
+
+ }

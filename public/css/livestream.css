@@ -1,0 +1,171 @@
+:root {
+    --bg-light: #f9f9f9;
+    --bg-dark: #1e1e1e;
+    --text-light: #000;
+    --text-dark: #fff;
+    --card-bg-light: #fff;
+    --card-bg-dark: #2c2c2c;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+header .logo img { height: 40px; }
+.theme-toggle { cursor: pointer; font-size: 20px; color: #333; }
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.video-section {
+    flex: 2;
+    min-width: 300px;
+}
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #000;
+    display: block;
+}
+.video-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    pointer-events: none;
+    z-index: 2;
+}
+.overlay-logo { height: 40px; }
+.live-badge {
+    background: red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    animation: blink 1s infinite;
+}
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.puja-details {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-family: Arial, sans-serif;
+    border-top: #e65c00;
+}
+
+.puja-details h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+
+.puja-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.puja-details strong {
+    color: #000;
+    font-weight: 600;
+}
+/* Read more toggle (YouTube style) */
+.read-more-btn {
+    display: inline-block;
+    margin-top: 8px;
+    color: #065fd4;
+    font-size: 14px;
+    cursor: pointer;
+}
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+body.dark .puja-details { background: var(--card-bg-dark); }
+
+.sidebar {
+    width: 300px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky; /* Scroll पर भी fixed रहेगा */
+    top: 10px;
+    max-height: calc(100vh - 20px); /* Screen की ऊँचाई के हिसाब से */
+    overflow-y: auto; /* Vertical scroll enable */
+}
+body.dark .sidebar { background: var(--card-bg-dark); }
+
+.puja-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px;
+}
+.puja-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.puja-info h3 { margin: 0; font-size: 16px; }
+.puja-info p { margin: 3px 0; font-size: 14px; }
+.book-btn {
+    display: inline-block; /* ताकि padding और width ठीक से लागू हो */
+    background: #ff6f00;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* underline हटाने के लिए */
+    transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+    background: #e65c00;
+}
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+}

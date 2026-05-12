@@ -1,0 +1,390 @@
+:root {
+    --web-primary: #fe9802;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-right: 13rem;
+}
+
+.countdown>div {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    box-shadow: 2px 2px 3px #fe9802;
+    width: 80px;
+    height: 45px;
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+
+.number {
+    font-weight: 500;
+    font-size: 25px;
+    color: var(--web-primary);
+}
+
+.number span {
+    font-size: 10px;
+}
+
+.bg-cover {
+    background-size: cover;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.border {
+    border: 1px solid gray;
+}
+
+.border-white {
+    border-color: #ffffff;
+}
+
+.border-4 {
+    border-width: 10px;
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+.circle-img-container {
+    width: 23px;
+    height: 40px;
+    position: relative;
+}
+
+.circle-img-container .circle-img {
+    width: 40px;
+    height: 43px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.12s;
+    margin-left: -20px;
+    background-color: white;
+}
+
+.centered-absolute {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s;
+}
+
+.circle-img-container:hover {
+    width: 40px;
+    margin: 0 -8px 0 0;
+}
+
+.circle-img-container:hover .circle-img {
+    top: -8px;
+    left: 0px;
+    width: 40px;
+    height: 43px;
+    z-index: 10;
+    max-height: 146px;
+}
+
+.tray {
+    text-align: center;
+    display: flex;
+    flex-wrap: none;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rem;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+/*FAQs*/
+.btnClr {
+    color: var(--web-primary);
+}
+
+.bg-\[\#E6E4EB\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(230 228 235/var(--tw-bg-opacity));
+}
+
+.left-arrow {
+    border: none;
+    background: transparent;
+}
+
+/* Media */
+@media only screen and (max-width: 768px) {
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-right: 0rem;
+    }
+
+    .tray {
+        margin-right: 5rem;
+    }
+
+    .__h-100 {
+        margin-top: 58px;
+    }
+
+    .details {
+        padding: 5px;
+    }
+}
+
+/* Ck editor Code */
+/* ?CK editor issues */
+.ck-rendered-content {
+    all: initial;
+    /* Reset styles */
+    unicode-bidi: isolate;
+    direction: ltr;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.ck-rendered-content * {
+    all: unset;
+    /* Clear inherited styles from Bootstrap */
+    display: revert;
+    /* Restore normal behavior */
+}
+
+.ck-rendered-content p {
+    margin: 0 0 1rem;
+}
+
+.ck-rendered-content strong,
+.ck-rendered-content b {
+    font-weight: bold;
+}
+
+.ck-rendered-content em,
+.ck-rendered-content i {
+    font-style: italic;
+}
+
+.ck-rendered-content ul,
+.ck-rendered-content ol {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.ck-rendered-content h1,
+.ck-rendered-content h2,
+.ck-rendered-content h3 {
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+}
+
+.ck-rendered-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+
+.ck-rendered-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.ck-rendered-content th,
+.ck-rendered-content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Pakcage Desing Code */
+/* Base styles - For Desktop & Large Tablets */
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.package-card {
+    background: linear-gradient(to bottom, #ff8725, #ff9800, #e58900);
+    padding: 16px;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+}
+
+.package-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.person-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    width: fit-content;
+    margin-bottom: 6px;
+    background: #444;
+}
+
+.select-circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #ddd;
+    transition: background 0.3s ease;
+}
+
+.title, .subtitle {
+    color: #fff;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.bottom-bar {
+    margin-top: auto;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: linear-gradient(to right, var(--package-color), transparent);
+}
+
+.bottom-bar .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.bottom-bar img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-left: 6px;
+}
+
+/* Tablets & Medium Phones (iPad, Galaxy Note, iPhone XR/12/13/14/15) */
+@media (max-width: 1024px) {
+    .package-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .package-card {
+        height: auto;
+        padding: 12px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .bottom-bar img {
+        height: 36px;
+    }
+}
+
+/* Small Phones (iPhone SE, Galaxy A01, older Vivos, Realme, Redmi Go) */
+@media (max-width: 480px) {
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+        width: 96%;
+    }
+
+    .package-card {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .bottom-bar .price {
+        font-size: 16px;
+    }
+
+    .bottom-bar img {
+        height: 34px !important;
+    }
+}
+
+/* Very Narrow Phones (360px and below) */
+@media (max-width: 360px) {
+    .package-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+    }
+
+    .bottom-bar .price {
+        font-size: 15px;
+    }
+}

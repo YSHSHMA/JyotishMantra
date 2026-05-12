@@ -1,0 +1,415 @@
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    margin: 0;
+    background: #f7f8fb;
+    color: #111;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    border-bottom: 2px solid #e67e22;
+    z-index: 1000;
+}
+
+.header img {
+    height: 40px;
+    object-fit: contain;
+}
+.slider-temple{
+    padding-top: 8rem!important;
+}
+.services {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+label.service {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e6e9ef;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    font-weight: 600;
+    z-index: 9999;
+    border-top: 2px solid #e67e22;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #eef2ff;
+    font-size: 12px;
+}
+
+.saved {
+    color: green;
+    font-weight: 600;
+}
+
+.note {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Slider */
+/* .slider {
+    margin: 30px auto;
+    border-radius: 10px;
+    overflow: hidden;
+} */
+
+.owl-carousel .item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Tablet View */
+@media (max-width: 1024px) {
+    .owl-carousel .item img {
+        height: 220px;
+        object-fit: cover;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .owl-carousel .item img {
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+    }
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color:#fff;
+    background-color:#ff6f00 !important;
+}
+.nriYajman {
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg,
+            #ff6f00,
+            #ff7b00,
+            #ff8f00,
+            #ff9e00,
+            #ffa800,
+            #ff6f00
+        ) border-box;
+    animation: bhagwaMove 4s linear infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes bhagwaMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Temple Info Container */
+.temple-info {
+    background: #fff;
+    margin: 35px auto;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Left and Right Columns */
+.temple-left,
+.temple-right {
+    flex: 1 1 50px;
+    min-width: 300px;
+}
+
+.temple-info h2 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 24px;
+}
+
+.temple-info p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+}
+
+.temple-info i {
+    color: #e67e22;
+    width: 18px;
+    text-align: center;
+}
+
+.temple-info strong {
+    color: #222;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating i {
+    color: #f1c40f;
+}
+
+.verified {
+    display: inline-block;
+    margin-left: 8px;
+    color: #27ae60;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .temple-info {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+.card-header h5 {
+    font-weight: 600;
+}
+
+.otp-section {
+    background-color: #f9f9f9;
+}
+
+#savedCustomers .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Optional: nicer scroll for customer list */
+#savedCustomers::-webkit-scrollbar {
+    width: 6px;
+}
+
+#savedCustomers::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 123, 255, 0.5);
+    border-radius: 3px;
+}
+
+.customer-section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.customer-section h5 {
+    font-weight: 600;
+}
+
+#addCustomerSection,
+#savedCustomersSection {
+    transition: all 0.4s ease-in-out;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px !important;
+}
+
+.list-group-item:hover {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .customer-section {
+        padding: 20px 15px;
+    }
+}
+
+.fixed-sidebar {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.fixed-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fixed-sidebar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.btn-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+#showAddCustomerBtn i,
+#showSavedCustomerBtn i {
+    font-size: 0.8rem;
+}
+
+#sendOtpBtn {
+    white-space: nowrap;
+}
+
+.fa-whatsapp {
+    font-size: 1.2rem;
+}
+
+.form-control.ps-5 {
+    padding-left: 2.5rem !important;
+}
+
+/* Container stays sticky (already done) */
+.services {
+    position: sticky;
+    top: 80px;
+    z-index: 1000;
+    background: #fff;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    transition: box-shadow 0.2s ease;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Each service label styled as a nice clickable button */
+.service-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+
+/* Hide the native checkbox */
+.service-btn input[type="checkbox"] {
+    display: none;
+}
+
+/* When checked — highlight beautifully */
+.service-btn input[type="checkbox"]:checked+span {
+    background: linear-gradient(135deg, #ffb300, #ff8c00);
+    color: #fff;
+    border-color: #ff9800;
+    box-shadow: 0 2px 6px rgba(255, 152, 0, 0.3);
+    padding: 8px 20px;
+    border-radius: 25px;
+}
+
+/* Text span adjustment */
+.service-btn span {
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* amount summary popup */
+.summary-popup {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    /* show above the icon */
+    left: 0;
+    /* width auto so it fits content */
+    min-width: 210px;
+    max-width: 360px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    z-index: 1200;
+    white-space: normal;
+}
+
+/* ensure scroll if many items */
+.summary-popup .list-group {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+/* optional small arrow */
+.summary-popup::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 12px;
+    /* tweak to position arrow */
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.06));
+}
+
+/* country code phone input */
+.iti {
+    width: 100% !important;
+}
+
+.phone-input-with-country-picker {
+    width: 100% !important;
+}
+
+@media (max-width: 768px) {
+    #nav-tab {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        flex-wrap: nowrap;
+    }
+
+    #nav-tab::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .nav-tabs .nav-link {
+        flex: 0 0 auto;
+        padding: 0.5rem 0.75rem;
+        font-size: 14px;
+    }
+}

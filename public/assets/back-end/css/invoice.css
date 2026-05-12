@@ -1,0 +1,65 @@
+
+body {
+  background-color: #f9f9f9;
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.invoice-box {
+  background: #fff;
+  padding: 25px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #161616;
+  padding: 8px;
+  text-align: center;
+}
+
+.table-bordered thead {
+  background-color: #646262;
+}
+
+.summary-final-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.summary-left {
+  width: 50%;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.summary-right {
+  width: 50%;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.summary-table-inner {
+  width: 100%;
+  border: 1px solid #161616;
+  border-collapse: collapse;
+}
+
+.summary-table-inner td {
+  text-align: right;
+  padding: 6px 12px;
+  border: 1px solid #161616;
+  white-space: nowrap;
+}
+
+.footer-note {
+  font-size: 12px;
+  margin-top: 20px;
+}

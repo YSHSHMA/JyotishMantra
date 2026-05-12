@@ -1,0 +1,267 @@
+:root {
+    --color-icon: #fe9802;
+}
+
+#info {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #fcf8e3;
+    border: 1px solid #fbeed5;
+    width: 95%;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    font-family: arial;
+    font-size: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+#info .info-wrapper {
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+
+}
+
+#info a {
+    color: #c09853;
+    text-decoration: none;
+}
+
+#info p {
+    margin: 5px 0 0 0;
+}
+
+#filters {
+    margin: 0px 1%;
+    padding: 0px 10px;
+    list-style: none;
+}
+
+#filters li {
+    float: left;
+}
+
+#filters li span {
+    display: block;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #666;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#filters li span.active {
+    background: #fe9802;
+    color: #fff;
+}
+
+
+
+#portfoliolist .portfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width: 31%;
+    margin: 1%;
+    display: none;
+    /*float:left;*/
+    overflow: hidden;
+}
+
+#offlinepoojaportfoliolist .offlinepoojaportfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width: 23%;
+    margin: 30px 10px;
+    display: none;
+    /* /float: left;/  */
+    overflow: hidden;
+}
+
+
+#offlinepoojafilters {
+    margin: 0px 1%;
+    padding: 0px 10px;
+    list-style: none;
+}
+
+#offlinepoojafilters li {
+    float: left;
+}
+
+#offlinepoojafilters li span {
+    display: block;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #666;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#offlinepoojafilters li span.active {
+    background: #fe9802;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    #portfoliolist .portfolio {
+        width: 100% !important;
+    }
+
+    #offlinepoojaportfoliolist .offlinepoojaportfolio {
+        width: 95% !important;
+    }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    #portfoliolist .portfolio {
+        width: 100% !important;
+    }
+
+    #offlinepoojaportfoliolist .offlinepoojaportfolio {
+        width: 95% !important;
+    }
+}
+
+.portfolio-wrapper {
+    overflow: hidden;
+    position: relative !important;
+    /*background: #666;*/
+    cursor: pointer;
+}
+
+.portfolio img {
+    position: relative;
+    top: 0;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all ease 0.5s;
+    object-fit: fill;
+    max-width: 480px;
+    max-height: 270px;
+    width: -webkit-fill-available;
+    height: auto;
+}
+
+.portfolio .label {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: -40px;
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.portfolio .label-bg {
+    background: #e95a44;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.portfolio .label-text {
+    color: #fff;
+    position: relative;
+    z-index: 500;
+    padding: 5px 8px;
+}
+
+.portfolio .text-category {
+    display: block;
+    font-size: 9px;
+}
+
+/*.portfolio:hover .label {*/
+/*   bottom:0;*/
+/* }*/
+/*.portfolio:hover img {*/
+/*   top:-30px;*/
+/* }  */
+
+.pooja-section {
+    display: flex;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.puja-image {
+    transition: all ease 0.5s;
+    object-fit: cover;
+    width: 100%;
+    height: 190px;
+}
+
+.card-text {
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.card-text i {
+    font-size: 20px;
+    color: #fe9802;
+    margin-right: 3px;
+}
+
+.pooja-badge {
+    top: 1rem !important;
+    background-color: #FF7722 !important;
+}
+
+.pooja-heading {
+    font-size: 15px;
+    color: #b60000;
+    text-align: center;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    border: 2px solid;
+    padding: 2px;
+}
+
+.underborder {
+    border-image: linear-gradient(to left, #b60000, #ffffff)0 0 1;
+}
+
+
+.pooja-calendar {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    margin-left: 8px;
+}
+
+.pooja-venue {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    margin-left: 8px;
+
+}
+
+.pooja-calendar i {
+    color: var(--color-icon);
+    font-size: 16px;
+}
+
+.pooja-venue i {
+    color: var(--color-icon);
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.pooja-name {
+    font-weight: 700;
+    font-size: 24px;
+}

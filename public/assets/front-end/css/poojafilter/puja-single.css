@@ -1,0 +1,518 @@
+.gj-datepicker-bootstrap [role=right-icon] button .gj-icon {
+    top: 14px;
+    right: 5px;
+}
+
+.gj-timepicker-bootstrap [role=right-icon] button .gj-icon {
+    top: 14px;
+    right: 5px;
+}
+/* GURU TITLE */
+.guru-title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.guru-title .small-text {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: -3px;
+}
+.guru-title h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* LOGO */
+.site-logo {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+.powered-logo .powered-text {
+    font-size: 11px;
+    color: #666;
+    display: block;
+    margin-bottom: -2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 576px) {
+    .guru-title h3 {
+        font-size: 16px;
+    }
+    .site-logo {
+        height: 26px;
+    }
+}
+
+
+.card-hero {
+    border: 0;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: #ffc1072e;
+    color: #fff;
+    padding: 1rem;
+}
+
+/* Slider */
+.owl-carousel .item img {
+    border-radius: 1rem;
+    max-height: 250px;
+    /* object-fit: cover; */
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    background: transparent !important;
+    border: 2px solid #FF9800;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Active dot */
+.owl-theme .owl-dots .owl-dot.active span {
+    background: #FF9800 !important;
+    border-color: #FF9800;
+}
+
+/* Package Cards */
+.package {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    padding: 2rem 1rem 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+    min-height: 200px;
+}
+
+.package h5,
+.package .mt-4 {
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 600;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.package:hover {
+    transform: translateY(-3px);
+    border-color: var(--pkg-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .4);
+}
+
+.package.selected {
+    border-color: var(--pkg-color);
+    box-shadow: 0 0 12px var(--pkg-color);
+}
+
+.person-badge {
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
+    color: #fff;
+    padding: .3rem .9rem;
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0 0 0 / 27%);
+}
+
+.select-circle {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #aaa;
+    background: #fff;
+}
+
+.package-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    height: 60px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(to right, #FFC107, #FF9800);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Shine effect */
+.package-footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.15) 100%
+        );
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+.package-footer  {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+.price {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+.package-footer img.package-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.package.selected .select-circle {
+    background: var(--pkg-color) url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M6.173 13.414a1 1 0 0 1-1.414 0L1.293 9.95a1 1 0 0 1 1.414-1.414l3.05 3.05 7.536-7.536a1 1 0 0 1 1.414 1.414L6.173 13.414z"/></svg>') center/14px no-repeat;
+    border-color: var(--pkg-color);
+}
+
+
+
+
+/* Sticky Footer */
+.sticky-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 951;
+    background-color: #e4e4e4;
+    border-top: 2px solid #FF9800;
+    color: #fff;
+}
+
+/* Pooja name  */
+.pooja-calendar {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    margin-left: 8px;
+    color: #000000 !important;
+}
+
+.pooja-venue {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    margin-left: 8px;
+    color: #000000 !important;
+
+}
+
+.leading-normal {
+    color: #000000 !important;
+}
+
+/* Count  */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.time-box {
+    background: #111;
+    color: #FF6F00;
+    text-align: center;
+    padding: 8px 12px;
+    /* height कम करने के लिए padding घटाई */
+    border-radius: 10px;
+    min-width: 60px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.time-box span {
+    display: block;
+    font-size: 1.6rem;
+    /* पहले 2rem था → अब छोटा */
+    font-weight: bold;
+    line-height: 1.2;
+    /* ज्यादा height ना ले */
+}
+
+.time-box small {
+    display: block;
+    margin-top: 2px;
+    /* पहले 4px था */
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .time-box {
+        min-width: 55px;
+        padding: 7px 10px;
+    }
+
+    .time-box span {
+        font-size: 1.4rem;
+    }
+
+    .time-box small {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .countdown {
+        gap: 8px;
+    }
+
+    .time-box {
+        min-width: 50px;
+        padding: 6px 8px;
+    }
+
+    .time-box span {
+        font-size: 1.2rem;
+    }
+
+    .time-box small {
+        font-size: 0.7rem;
+    }
+}
+
+/* Container holding all profile circles */
+.tray {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    /* spacing between circles */
+}
+
+/* Individual circle container */
+.circle-img-container {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+/* The circle image itself */
+.circle-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* makes it circular */
+    background-size: cover;
+    /* image covers circle */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid #fff;
+    /* white border around */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* soft shadow */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.circle-img:hover {
+    transform: scale(1.1);
+    border-color: #FF6F00;
+    /* saffron border on hover */
+}
+
+.fa-star {
+    color: #FF6F00;
+}
+
+.btn-primary {
+    background-color: #FF6F00;
+    border-color: #FF6F00;
+}
+
+.btn-primary:hover {
+    background-color: #FF6F00;
+    border-color: #FF6F00;
+}
+
+.font-10 {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    /* default for mobile */
+    max-height: 500px;
+    /* limit on big screens */
+    object-fit: contain;
+    /* full image visible */
+    border-radius: 8px;
+}
+
+/* For laptops/desktops */
+@media (min-width: 992px) {
+    .carousel-img {
+        height: 500px;
+        /* fix height */
+        object-fit: cover;
+        /* fills box without stretching */
+    }
+}
+
+/* For tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel-img {
+        height: 400px;
+    }
+}
+
+/* For small mobile */
+@media (max-width: 767px) {
+    .carousel-img {
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+    }
+}
+
+#footerInfo {
+    color: #000
+}
+
+/* Product List Css */
+.product-slide {
+    position: fixed;
+    bottom: 100px;
+    /* hidden initially */
+    left: 0;
+    width: 100%;
+    background: #1c1c1c;
+    color: #fff;
+    padding: 1rem;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, .4);
+    transition: bottom 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.product-slide.show {
+    bottom: 0;
+    /* slide up */
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slide-img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.slide-name {
+    font-size: 1rem;
+}
+
+.slide-price {
+    font-size: 0.9rem;
+    color: #FF6F00;
+}
+
+
+.product-name {
+    font-size: 14px;
+    line-height: 1.2em;
+    height: 2.4em;
+    /* max 2 lines */
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.slide-img {
+    flex-shrink: 0;
+}
+
+.owl-carousel .item {
+    padding: 5px;
+}
+
+#productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* cards ke beech gap */
+}
+
+#productList .product-card {
+    flex: 0 0 calc(50% - 10px);
+    /* Mobile: 2 cards per row */
+    max-width: calc(50% - 10px);
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    #productList .product-card {
+        flex: 0 0 calc(25% - 10px);
+        /* Tablet/Desktop: 4 per row */
+        max-width: calc(25% - 10px);
+    }
+}
+
+
+
+.product-card {
+    width: 100% !important;
+    /* पूरा width ले */
+    max-width: 100% !important;
+}
+
+@media (min-width: 768px) {
+    .product-card {
+        max-width: 350px;
+        /* desktop पर fix size रख सकते हो */
+    }
+}
+
+.text-warning {
+    color: #FF6F00 !important;
+}
