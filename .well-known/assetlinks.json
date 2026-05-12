@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "manal.mahakal.com",
+    "sha256_cert_fingerprints": ["AD:97:09:72:B0:11:6C:B6:57:48:35:9C:58:D7:EA:9E:88:BF:44:65:5B:38:3C:9D:3C:8D:23:7D:1F:10:25:2F"]
+  }
+}]
