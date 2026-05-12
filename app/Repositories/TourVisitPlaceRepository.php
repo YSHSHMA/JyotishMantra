@@ -1,0 +1,79 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Contracts\Repositories\TourVisitPlaceRepositoryInterface;
+use App\Models\TourVisitPlace;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class TourVisitPlaceRepository implements TourVisitPlaceRepositoryInterface
+{
+
+    public function __construct(private readonly TourVisitPlace $tourvisit)
+    {
+    }
+    
+
+    public function add(array $data): string|object
+    {
+        return $this->tourvisit->create($data);
+    }
+
+    public function getList(array $orderBy = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, ?int $offset = null): Collection|LengthAwarePaginator
+    {
+        
+        $query = $this->tourvisit->with($relations)
+        ->when(!empty($orderBy), function ($query) use ($orderBy) {
+            return $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
+        });
+    return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit);
+
+    }
+
+    public function getListWhere(array $orderBy = [], ?string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, ?int $offset = null): Collection|LengthAwarePaginator
+    {
+        $query = $this->tourvisit->with($relations)
+            ->when($searchValue, function ($query) use ($searchValue) {
+                    $query->where('name', 'like', "%$searchValue%");
+            })
+
+            
+            ->when(isset($filters['tour_visit_id']), function ($query) use($filters) {
+                return $query->where(['tour_visit_id' => $filters['tour_visit_id']]);
+            })  
+            ->when(!empty($orderBy), function ($query) use ($orderBy) {
+                $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
+            });
+
+        $filters += ['searchValue' => $searchValue];
+        return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit)->appends($filters);
+        
+    }
+    public function getFirstWhere(array $params, array $relations = []): ?Model
+    {
+        return $this->tourvisit->withoutGlobalScope('translate')->where($params)->with($relations)->first();
+    }
+
+    public function getFirstWhereWithoutGlobalScope(array $params, array $relations = []): ?Model
+    {
+        return $this->tourvisit->withoutGlobalScopes()->where($params)->with($relations)->first();
+    }
+
+
+
+    public function update(string $id, array $data): bool
+    {
+        return $this->tourvisit->where('id', $id)->update($data);
+    }
+
+    public function delete(array $params): bool
+    {
+        $this->tourvisit->where($params)->delete();
+        return true;
+    }
+
+}
+
+?>
