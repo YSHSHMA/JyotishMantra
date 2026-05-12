@@ -1,0 +1,161 @@
+# Laravel environment and system files
+.env
+.env.*
+Homestead.yaml
+Homestead.json
+phpunit.result.cache
+
+# Composer and node modules
+/vendor/
+/vendor/*
+/node_modules/
+
+# Laravel specific
+/storage/*.key
+/storage/oauth-private.key
+/storage/oauth-public.key
+/storage/*.log
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+
+# Ignore everything in storage
+/storage/*
+
+# But keep storage/framework and its contents
+!storage/framework/
+!storage/framework/**
+
+# Laravel language files
+resources/lang/in/messages.php
+resources/lang/en/messages.php
+
+# IDE/project files
+/.idea/
+/.vscode/
+/*.code-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Temp and backup files
+*.bak
+*.tmp
+*.swp
+*.swo
+*.zip
+
+# Custom application files
+adm.php
+backup.json
+
+# Custom paths to ignore
+public/muhurat-json/muhurats.json
+
+# Blog-specific
+gitConfigBackup/
+blog/.env
+blog/node_modules/
+blog/uploads/logo/
+blog/uploads/images/
+blog/uploads/profile/
+blog/writable/logs/
+blog/writable/cache/
+blog/writable/session/
+
+# Certificates
+public/assets/back-end/img/certificate/pooja/
+public/assets/back-end/img/certificate/offlinepooja/
+
+# Public storage folders (custom)
+public/storage/birthjournal/
+public/storage/donate/
+public/storage/event/
+public/storage/event_passes/
+public/storage/payment_modules/
+public/storage/pooja/
+public/storage/public/
+public/storage/qrcodes/
+public/storage/seller/
+public/storage/shop/
+public/storage/support-ticket/
+public/storage/temple/
+public/storage/tour_and_travels/
+public/storageold/
+public/storage/donate/invoice/
+public/storage/tour_and_travels/tour_visit_place/
+
+
+# .env
+# /storage
+# # Ignore folder
+# public/muhurat-json/muhurats.json
+
+# # macOS system file
+# .DS_Store
+# resources/lang/in/messages.php
+# resources/lang/en/messages.php
+
+# /node_modules
+# /.idea
+# /.vscode
+# /.DS_Store
+
+# Thumbs.db
+# .DS_Store
+
+# # Backup or temp files
+# *.bak
+# *.tmp
+# *.swp
+# *.swo
+# *.zip 
+
+# adm.php
+# backup.json
+
+
+# # Blogs
+
+# gitConfigBackup/
+# blog/.env
+# blog/node_modules
+# blog/uploads/logo/
+# # Ignore log files
+# blog/writable/logs/
+# public/assets/back-end/img/certificate/pooja/
+# public/assets/back-end/img/certificate/offlinepooja/
+# blog/uploads/images/
+# blog/writable/cache/
+# blog/writable/session/
+# blog/uploads/profile/
+
+# public/storage/birthjournal/
+# public/storage/donate/
+# public/storage/event/
+# public/storage/event_passes/
+# public/storage/payment_modules/
+# public/storage/pooja/
+# public/storage/public/
+# public/storage/qrcodes/
+# public/storage/seller/
+# public/storage/shop/
+# public/storage/support-ticket/
+# public/storage/temple/
+# public/storage/tour_and_travels/
+# public/storageold/
+# public/storage/donate/invoice
+# public/storage/tour_and_travels/tour_visit_place
+
+# vue js 
+resources/js
+resources/themes/default/web-views/puja/test.blade.php
+webpack.mix.js
+package-lock.json
+package.json
+public/js/app.js
+public/mix-manifest.json
+resources/js/bootstrap.js
+resources/js/components/ExampleComponent.vue
