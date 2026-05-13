@@ -1,8 +1,8 @@
-# Mahakal.com – Web Application
+# jotishkendra.com – Web Application
 
 > **Dev Branch**
 
-This is the core web application for [Mahakal.com](https://mahakal.com), a spiritual and religious services platform that offers online pooja bookings, consultations, donations, and more.
+This is the core web application for [Mahakal.com](https://jotishkendra.com), a spiritual and religious services platform that offers online pooja bookings, consultations, donations, and more.
 
 ## 🔧 Tech Stack
 
