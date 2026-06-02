@@ -387,10 +387,6 @@ This project is proprietary software owned by JyotishMantra.
 
 ---
 
-<div align="center">
+## Owner
 
-### Made with ❤️ for Devotees and Spiritual Communities
-
-**JyotishMantra**
-
-</div>
+© Yash Sharma. All Rights Reserved. For support, questions, or issue reporting, feel free to email: 06yashsharma@gmail.com
