@@ -91,44 +91,6 @@ Connect with trusted priests for rituals and ceremonies.
 
 ---
 
-## 🚀 Features
-
-### Temple Services
-- Temple Listings
-- Darshan Booking
-- Temple Donations
-- Chadhava Services
-- VIP Temple Services
-
-### Puja Services
-- Online Puja
-- Offline Puja
-- Pandit Booking
-- Customized Rituals
-- Festival Special Puja
-
-### Astrology
-- Kundli Services
-- Horoscope
-- Astrology Consultation
-- Birth Journal
-- Rashifal
-
-### Marketplace
-- Religious Products
-- Rudraksha
-- Yantra
-- Prasad Delivery
-- Spiritual Accessories
-
-### Tours & Events
-- Religious Tours
-- Temple Tours
-- Event Booking
-- Spiritual Retreats
-
----
-
 # 🏗️ Tech Stack
 
 | Layer | Technology |
