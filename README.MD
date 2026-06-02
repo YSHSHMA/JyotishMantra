@@ -1,33 +1,93 @@
-<div align="center">
 
-# 🕉️ JyotishMantra
 
-### India's Spiritual Marketplace for Puja, Temple Services, Astrology & Religious Products
-
-<p align="center">
-  <img src="./docs/jyotishmantra-homepage.png" alt="JyotishMantra Homepage" width="100%">
-</p>
-
-</div>
-
----
-
-## 📖 About
+## 🕉️ JyotishMantra
 
 JyotishMantra is a comprehensive spiritual and religious platform that connects devotees with temples, pandits, astrology services, puja bookings, donations, darshan services, religious products, yatras, and various Hindu spiritual offerings.
 
-The platform provides:
+<table>
+<tr>
+<td align="center" width="50%">
 
-- 🛕 Temple Booking & Darshan
-- 🔱 Online & Offline Puja Services
-- 📿 Rudraksha & Spiritual Products
-- 🔮 Astrology Consultation
-- 🎁 Religious Gift Cards
-- 🚕 Tour & Travel Services
-- 🎥 Live Darshan
-- 🙏 Donations & Chadhava
-- 📚 Spiritual Content & Blogs
-- 👨‍🏫 Verified Pandits & Priests
+### 🛕 Temple Booking & Darshan
+Book temple visits, VIP darshan, and spiritual experiences.
+
+</td>
+<td align="center" width="50%">
+
+### 🔱 Online & Offline Puja Services
+Schedule personalized pujas performed by verified priests.
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+### 📿 Rudraksha & Spiritual Products
+Shop authentic spiritual products and religious items.
+
+</td>
+<td align="center">
+
+### 🔮 Astrology Consultation
+Consult experienced astrologers for guidance and predictions.
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+### 🎁 Religious Gift Cards
+Send spiritual gifts and blessings to your loved ones.
+
+</td>
+<td align="center">
+
+### 🚕 Tour & Travel Services
+Explore pilgrimage destinations with curated travel packages.
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+### 🎥 Live Darshan
+Watch live temple darshan and religious events online.
+
+</td>
+<td align="center">
+
+### 🙏 Donations & Chadhava
+Offer donations and temple contributions securely online.
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+### 📚 Spiritual Content & Blogs
+Read articles, scriptures, spiritual guides, and insights.
+
+</td>
+<td align="center">
+
+### 👨‍🏫 Verified Pandits & Priests
+Connect with trusted priests for rituals and ceremonies.
+
+</td>
+</tr>
+</table>
+
+---
+
+---
+
+## Landing Page
+
+![Homepage](./public/jyotishmantra-homepage.png)
 
 ---
 
@@ -333,16 +393,6 @@ Restart:
 ```bash
 docker compose restart
 ```
-
----
-
-# 📸 Screenshots
-
-## Home Page
-
-![Homepage](./public/jyotishmantra-homepage.png)
-
----
 
 # 🤝 Contributing
 
