@@ -3648,8 +3648,8 @@ class AstroController extends Controller
             'company_info' => 'Description of Mahakal Astrotech OPC Pvt Ltd.',
             'domain_url' => 'https://mahakal.com/',
             'company_email' => 'contact@mahakal.com',
-            'company_landline' => '08069645013',
-            'company_mobile' => '08069645013'
+            'company_landline' => '08602xxxxxx',
+            'company_mobile' => '08602xxxxxx'
         );
 
         // Check if the requested language is 'hi' or 'en'

@@ -74,7 +74,7 @@
                     href="mailto:contact@example.com">contact@mahakal.com</a>
                 <i class="fa fa-phone-square phone-icon"></i>
                 <!--<a href="tel:+919424582045">+91 9424582045</a>,-->Toll free :
-                &nbsp;<a href="tel:08069645013">08069645013</a>
+                &nbsp;<a href="tel:08602xxxxxx">08602xxxxxx</a>
             </div>
             <div class="cta d-none d-md-block">
                 <a href="#about" class="scrollto">Get Started</a>

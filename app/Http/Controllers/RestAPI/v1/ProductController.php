@@ -61,7 +61,7 @@ class ProductController extends Controller
             return optional($product->category)->name;
         });
             
-        $featuredProducts = ProductManager::get_same_day_delivery($request, $request['limit'], $request['offset'],'featured-product',$shops);
+$featuredProducts = ProductManager::get_same_day_delivery($request, 'featured-product', $shops, $request['limit'], $request['offset']);
         $featuredProducts['products'] = Helpers::product_data_formatting($featuredProducts['products'], true);
 
         $sellers = Seller::whereIn('id', $shops)
@@ -81,7 +81,7 @@ class ProductController extends Controller
         });
 
         $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
-        $latestProducts = ProductManager::get_same_day_delivery($request, $request['limit'], $request['offset'],'latest-product',$shops);
+$latestProducts = ProductManager::get_same_day_delivery($request, 'latest-product', $shops, $request['limit'], $request['offset']);
         $latestProducts['products'] = Helpers::product_data_formatting($latestProducts['products'], true);
 
         return response()->json(['status'=>true,'banner'=>$banner,'categories'=>$categories,'category-product'=>$categoryProducts,'featured-product'=>$featuredProducts,'seller'=>$sellers,'deal-of-the-day'=>$deal_of_the_day,'latest-product'=>$latestProducts], 200);        

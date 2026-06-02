@@ -19,11 +19,12 @@ class ProductManager
         return Product::active()->with(['rating', 'seller.shop', 'tags'])->where('id', $id)->first();
     }
 
-    public static function get_same_day_delivery($request, $limit = 10, $offset = 1, $type , $shops)
+    public static function get_same_day_delivery($request, $type, $shops, $limit = 10, $offset = 1)
     {
+        $paginator = null;
         $user = Helpers::get_customer($request);
         if($type == 'featured-product'){
-            $paginator = Product::whereIn('user_id', $shops)->with(['reviews'])->active()->where('featured', 1)->withCount(['orderDetails'])->paginate($limit, ['*'], 'page', $offset);
+            $paginatori = Product::whereIn('user_id', $shops)->with(['reviews'])->active()->where('featured', 1)->withCount(['orderDetails'])->paginate($limit, ['*'], 'page', $offset);
         } elseif($type == 'latest-product'){
             $paginator = Product::whereIn('user_id', $shops)->with(['reviews'])->active()->orderBy('id', 'desc')->paginate($limit, ['*'], 'page', $offset);
         } 

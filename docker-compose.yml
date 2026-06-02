@@ -34,8 +34,7 @@ services:
     environment:
       MYSQL_DATABASE: mahakal_admin
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
-      MYSQL_USER: root
+
     ports:
       - "3307:3306"
     volumes:
